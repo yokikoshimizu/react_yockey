@@ -4,9 +4,14 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <button type="button" onClick="hello()">Hello World</button>
+      <script>
+        function hello() {
+          window.alert('警告ざます')
+        }
+      </script>
     </div>
-  );
+  )
 }
 
 export default App;
