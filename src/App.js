@@ -23,7 +23,6 @@ function App() {
       console.log(count);
     }
 
-render()
   return (
     <div>
       <div>
