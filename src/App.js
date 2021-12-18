@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { render } from '@testing-library/react';
 
 function App() {
@@ -22,6 +22,13 @@ function App() {
       setCount(0);
       console.log(count);
     }
+  const [text, setText ] = useState('');
+  const handleClick = () => {
+    setText(prev => prev + 'yokiko');
+    console.log(text);
+  };
+
+   
 
   return (
     <div>
@@ -30,6 +37,10 @@ function App() {
         <button onClick={decrement}>よくないね</button>
         <button onClick={countReset}>リセット!</button>
         {count}
+      </div>
+      <div>
+        <button onClick={handleClick}>add</button>
+        {text}
       </div>
       <div>
         <h1>Hello world</h1>
