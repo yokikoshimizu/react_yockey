@@ -1,67 +1,28 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
-import React, { useEffect, useState } from 'react';
-import { render } from '@testing-library/react';
+import Card from './Card';
 
-function App() {
-  const [count, setCount ] = useState(0);
-  const name = 'yokiko';
-  const buttonAlert = () => {
-    window.alert('警告ざます')
-  }
+const sampleArray = [
+  { id: 1, name: 'aaa', date: 19920928 },
+  { id: 2, name: 'bbb', date: 19920929 },
+  { id: 3, name: 'ccc', date: 19920930 },
+  { id: 4, name: 'ddd', date: 19920901 },
+  { id: 5, name: 'aaa', date: 19920902 },
+]
 
-    const increment = () => {
-      setCount(count + 1);
-      console.log(count);
-    }
-    const decrement = () => {
-      setCount(count - 1);
-      console.log(count);
-    }
-    const countReset = () => {
-      setCount(0);
-      console.log(count);
-    }
-  const [text, setText ] = useState('');
-  const handleClick = () => {
-    setText(prev => prev + 'yokiko');
-    console.log(text);
-  };
-
-   
-
+const App = () => {
   return (
     <div>
       <div>
-        <button onClick={increment}>いいね</button>
-        <button onClick={decrement}>よくないね</button>
-        <button onClick={countReset}>リセット!</button>
-        {count}
+        {sampleArray.map((data,index) => {
+          return <Card id={data.id} name={data.name} date={data.date} key={index}></Card>
+        })}
       </div>
       <div>
-        <button onClick={handleClick}>add</button>
-        {text}
-      </div>
-      <div>
-        <h1>Hello world</h1>
-        <h2>Hello world</h2>
-        <h3>Hello world</h3>
-        <h4>Hello world</h4>
-
-        <button
-          onClick={() => window.alert("Hello world")}
-        ></button>
-
-        <button>button</button>
-        <input type="text" />
-        <a href='#'>a タグ</a>
-        {name}
-      </div>
-      <div className="App">
-        <button onClick={buttonAlert}>Hello World</button>
+        <Card name="yokiko" date="2021/12/18"></Card>
       </div>
     </div>
   );
 };
 
-export default App;
+export default App
