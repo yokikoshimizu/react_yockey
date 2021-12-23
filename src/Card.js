@@ -5,15 +5,6 @@ const Card = (props) => {
     console.log(props)
     return(
         <div className="wrapper">
-            <table className="header">
-                <header>
-                    <tr>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>date</th>
-                    </tr>
-                </header>
-            </table>
             <table className="tbody">
                 <tbody>
                     <tr>

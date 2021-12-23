@@ -4,6 +4,21 @@ h1{
 
 .wrapper{
     width: 300px;
-    height: 100px;
-    border: 1px solid #000;
+    height: 50px;
+    border: none solid #000;
 }
+table {
+    table-layout: auto;
+    width: 130%;
+    border-collapse: collapse;
+    border: 3px;
+    margin: 0%;
+  }
+  
+  th{
+    padding: 0px 20px;
+  }
+
+  td{
+      padding: 20Px;
+  }

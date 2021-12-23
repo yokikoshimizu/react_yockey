@@ -13,11 +13,20 @@ const sampleArray = [
 const App = () => {
   return (
     <div>
-      <div>
-        {sampleArray.map((td,index) => {
-          return <Card id={td.id} name={td.name} date={td.date} key={index}></Card>
-        })}
-      </div>
+      <table>
+        <theader>
+          <tr>
+            <th><h1>id</h1></th>
+            <th><h1>name</h1></th>
+            <th><h1>date</h1></th>
+          </tr>
+        </theader>
+        <tbody>
+          {sampleArray.map((data,index) => {
+            return <Card id={data.id} name={data.name} date={data.date} key={index}></Card>
+          })}
+        </tbody>
+      </table>
       <div>
         <Card name="yokiko" date="2021/12/18"></Card>
       </div>
