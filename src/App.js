@@ -14,8 +14,8 @@ const App = () => {
   return (
     <div>
       <div>
-        {sampleArray.map((data,index) => {
-          return <Card id={data.id} name={data.name} date={data.date} key={index}></Card>
+        {sampleArray.map((td,index) => {
+          return <Card id={td.id} name={td.name} date={td.date} key={index}></Card>
         })}
       </div>
       <div>
