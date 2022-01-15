@@ -26,9 +26,11 @@ const ComponentA = () => {
             </Card.Body>
             </Card>
             
-
-            <Button variant="primary">Hello world</Button>
-            <Link to="componentb" >ComponentBへ遷移</Link>
+            <ul>
+                <li><Button variant="primary">Hello world</Button></li>
+                <li><Link to="componentb" >ComponentBへ遷移</Link></li>
+                <li><Link to="extra" >Extraへ遷移</Link></li>
+            </ul>
             <div>
             <Table responsive="sm">
                 <thead>
