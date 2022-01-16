@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Table } from 'react-router-dom';
 import axios from 'axios'
 
 const sampleArray = [
@@ -37,6 +37,7 @@ const ComponentA = () => {
       <button onClick={increment}>+</button>
       <div>count : {count}</div>
       <div>
+    <Table responsive="sm">
       <table>
         <theader>
           <tr>
@@ -47,10 +48,11 @@ const ComponentA = () => {
         </theader>
         <tbody>
           {sampleArray.map((data,index) => {
-            return <div id={data.id} name={data.name} date={data.date} key={index}></div>
+            <li id={data.id} name={data.name} date={data.date} key={index}></li>
           })}
         </tbody>
       </table>
+      </Table>
       <div>{state}</div>
       </div>
     </div>
