@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Table } from 'react-bootstrap';
-import axios from 'axios'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 const sampleArray = [
     { id: 1, name: 'aaa', date: 19920928 },
