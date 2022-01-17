@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Table } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Table } from 'react-bootstrap';
 import axios from 'axios'
 
 const sampleArray = [
@@ -20,15 +21,18 @@ const ComponentA = () => {
     axios.get('https://jsonplaceholder.typicode.com/todos').then(res => {
         console.log(res.data, 'res check')
   })
+
+  setData(result.data);
+
+  useState(() => {data}
+  )
+
 }, []);
 
   const increment = () => {
     setCount(count + 1);
   };
 
-  const state = () => {
-      setData(data);
-  };
 
   return (
     <div>
