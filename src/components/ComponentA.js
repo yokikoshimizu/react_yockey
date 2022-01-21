@@ -14,19 +14,19 @@ const sampleArray = [
 
 const ComponentA = () => {
     const [ count, setCount ] = useState(0);
-    const [data, setData] = useState([])
 
   useEffect(() => {
     console.log('useEffect が呼び出されました。');
 
     axios.get('https://jsonplaceholder.typicode.com/todos').then(res => {
-        console.log(res.data, 'res check')
+        console.log(res.data, 'res check');
   })
 
-  setData(result.data);
-
-  useState(() => {data}
-  )
+  useState(() => {
+      console.timeLog('useState が呼び出されました');
+      axios.get('https://jsonplaceholder.typicode.com/todos').then(res => {
+        console.log(res.data, 'res check')
+  })
 
 }, []);
 
@@ -58,10 +58,9 @@ const ComponentA = () => {
         </tbody>
       </table>
       </Table>
-      <div>{state}</div>
       </div>
     </div>
   );
-};
+});
 
 export default ComponentA;
