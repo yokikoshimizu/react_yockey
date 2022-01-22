@@ -12,9 +12,7 @@ const sampleArray = [
     { id: 5, name: 'aaa', date: 19920902 },
   ]
 
-const ComponentA = () => {
-    const [ count, setCount ] = useState(0);
-
+const ComponentA = () => {}
   useEffect(() => {
     console.log('useEffect が呼び出されました。');
 
@@ -30,10 +28,6 @@ const ComponentA = () => {
 
 }, []);
 
-  const increment = () => {
-    setCount(count + 1);
-  };
-
 
   return (
     <div>
@@ -42,22 +36,22 @@ const ComponentA = () => {
       <button onClick={increment}>+</button>
       <div>count : {count}</div>
       <div>
-    <Table responsive="sm">
-      <table>
-        <theader>
-          <tr>
-            <th><h1>id</h1></th>
-            <th><h1>name</h1></th>
-            <th><h1>date</h1></th>
-          </tr>
-        </theader>
-        <tbody>
-          {sampleArray.map((data,index) => {
-            <li id={data.id} name={data.name} date={data.date} key={index}></li>
-          })}
-        </tbody>
-      </table>
-      </Table>
+        <Table responsive="sm">
+          <table>
+            <theader>
+              <tr>
+                <th><h1>id</h1></th>
+                <th><h1>name</h1></th>
+                <th><h1>date</h1></th>
+              </tr>
+            </theader>
+            <tbody>
+              {sampleArray.map((data,index) => {
+                <li id={data.id} name={data.name} date={data.date} key={index}></li>
+              })}
+            </tbody>
+          </table>
+        </Table>
       </div>
     </div>
   );
