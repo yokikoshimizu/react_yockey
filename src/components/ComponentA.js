@@ -12,24 +12,17 @@ const sampleArray = [
     { id: 5, name: 'aaa', date: 19920902 },
   ]
 
-const ComponentA = (() => {
-  <figure sampleArray = {
-    <li id={data.id} name={data.name} date={data.date} key={index}></li>
-  }
-  </figure>
-};)
+const ComponentA = () => {
+  const [data,setData] = useState([]);
+    console.log('20220122');
+  
 
   useEffect(() => {
     console.log('useEffect が呼び出されました。');
 
     axios.get('https://jsonplaceholder.typicode.com/todos').then(res => {
         console.log(res.data, 'res check');
-  })
-
-  useState(() => {
-      console.timeLog('useState が呼び出されました');
-      axios.get('https://jsonplaceholder.typicode.com/todos').then(res => {
-        console.log(res.data, 'res check')
+        setData(res.data)
   })
 
 }, []);
@@ -39,8 +32,6 @@ const ComponentA = (() => {
     <>
       <div>ComponentA</div>
       <Link to="componentb">ComponentBへ移動</Link>
-      <button onClick={increment}>+</button>
-      <div>count : {count}</div>
         <Table responsive="sm">
           <table>
             <theader>
@@ -59,6 +50,6 @@ const ComponentA = (() => {
         </Table>
     </>
   );
-});
+};
 
 export default ComponentA;
