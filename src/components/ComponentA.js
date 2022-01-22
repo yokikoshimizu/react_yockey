@@ -12,7 +12,13 @@ const sampleArray = [
     { id: 5, name: 'aaa', date: 19920902 },
   ]
 
-const ComponentA = () => {}
+const ComponentA = (() => {
+  <figure sampleArray = {
+    <li id={data.id} name={data.name} date={data.date} key={index}></li>
+  }
+  </figure>
+};)
+
   useEffect(() => {
     console.log('useEffect が呼び出されました。');
 
@@ -30,12 +36,11 @@ const ComponentA = () => {}
 
 
   return (
-    <div>
+    <>
       <div>ComponentA</div>
       <Link to="componentb">ComponentBへ移動</Link>
       <button onClick={increment}>+</button>
       <div>count : {count}</div>
-      <div>
         <Table responsive="sm">
           <table>
             <theader>
@@ -52,8 +57,7 @@ const ComponentA = () => {}
             </tbody>
           </table>
         </Table>
-      </div>
-    </div>
+    </>
   );
 });
 
