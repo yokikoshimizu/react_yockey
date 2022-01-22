@@ -4,14 +4,6 @@ import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
-const sampleArray = [
-    { id: 1, name: 'aaa', date: 19920928 },
-    { id: 2, name: 'bbb', date: 19920929 },
-    { id: 3, name: 'ccc', date: 19920930 },
-    { id: 4, name: 'ddd', date: 19920901 },
-    { id: 5, name: 'aaa', date: 19920902 },
-  ]
-
 const ComponentA = () => {
   const [data,setData] = useState([]);
     console.log('20220122');
@@ -32,21 +24,33 @@ const ComponentA = () => {
     <>
       <div>ComponentA</div>
       <Link to="componentb">ComponentBへ移動</Link>
-        <Table responsive="sm">
-          <table>
-            <theader>
+        <Table striped bordered hover>
+        
+            <thead>
               <tr>
-                <th><h1>id</h1></th>
-                <th><h1>name</h1></th>
-                <th><h1>date</h1></th>
+                <th>
+                  id
+                </th>
+                <th>
+                  userid
+                </th>
+                <th>
+                  title
+                </th>
               </tr>
-            </theader>
+            </thead>
             <tbody>
-              {sampleArray.map((data,index) => {
-                <li id={data.id} name={data.name} date={data.date} key={index}></li>
-              })}
+                  { data.map((d,index) => {
+                      return (
+                        <tr key={index}>
+                            <td>{d.id}</td>
+                            <td>{d.userid}</td>
+                            <td>{d.title}</td>
+                        </tr>
+                        )
+                    })}
             </tbody>
-          </table>
+        
         </Table>
     </>
   );
