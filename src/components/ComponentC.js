@@ -12,13 +12,16 @@ const ComponentC = () => {
 
   useEffect(() => {
     console.log('useEffect が呼び出されました。');
-
     axios.get('https://jsonplaceholder.typicode.com/comments').then(res => {
         console.log(res.data, 'res check');
         setData(res.data)
   })
-
-}, []);
+  }, []);
+  
+  const getAPIData = async () => {
+    const res = await axios.get('https://jsonplaceholder.typicode.com/comments')
+    console.log("🚀 ~ file: ComponentC.js ~ line 23 ~ getAPIData ~ res", res)
+  }
 
   return (
     <>
@@ -26,8 +29,12 @@ const ComponentC = () => {
         <div>ComponentC</div>
         <Link to="/">ComponentAへ移動</Link>
       </div>
-      <Button href='https://jsonplaceholder.typicode.com/comments' onClick={() =>
-        <Table striped bordered hover>  
+    
+      <Button
+        onClick={getAPIData}
+      >Button</Button>
+      
+    <Table striped bordered hover>  
           <thead>
             <tr>
               <th>
@@ -61,9 +68,7 @@ const ComponentC = () => {
                   })}
           </tbody>
         </Table>
-      }>
-      GetData
-      </Button>
+    
     </>
   );
 };
