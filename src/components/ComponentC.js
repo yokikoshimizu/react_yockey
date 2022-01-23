@@ -9,19 +9,13 @@ const ComponentC = () => {
   const [data,setData] = useState([]);
     console.log('20220122');
   
-
-  useEffect(() => {
-    console.log('useEffect が呼び出されました。');
-    axios.get('https://jsonplaceholder.typicode.com/comments').then(res => {
-        console.log(res.data, 'res check');
-        setData(res.data)
-  })
-  }, []);
-  
   const getAPIData = async () => {
-    const res = await axios.get('https://jsonplaceholder.typicode.com/comments')
-    console.log("🚀 ~ file: ComponentC.js ~ line 23 ~ getAPIData ~ res", res)
-  }
+    try {
+      const comments= await axios.get('https://jsonplaceholder.typicode.com/comments')
+      setData(comments.data);
+    } catch(res){
+    console.log("🚀 ~ file: ComponentC.js ~ line 23 ~ getAPIData ~ res", res)}
+  };
 
   return (
     <>
@@ -29,10 +23,11 @@ const ComponentC = () => {
         <div>ComponentC</div>
         <Link to="/">ComponentAへ移動</Link>
       </div>
-    
+    <setData>
       <Button
         onClick={getAPIData}
       >Button</Button>
+    </setData>
       
     <Table striped bordered hover>  
           <thead>
