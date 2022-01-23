@@ -26,7 +26,7 @@ const ComponentC = () => {
         <div>ComponentC</div>
         <Link to="/">ComponentAへ移動</Link>
       </div>
-      <Button type="submit" onClick={() =>
+      <Button href='https://jsonplaceholder.typicode.com/comments' onClick={() =>
         <Table striped bordered hover>  
           <thead>
             <tr>
