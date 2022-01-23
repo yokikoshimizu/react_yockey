@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,useReducer } from 'react';
 import { Link } from 'react-router-dom';
 import { Table } from 'react-bootstrap';
+import reducer from '../reducers/index'
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+
+const initialCount = {
+  count: 0
+}
 
 const ComponentC = () => {
   const [data,setData] = useState([]);
@@ -17,12 +22,42 @@ const ComponentC = () => {
     console.log("🚀 ~ file: ComponentC.js ~ line 23 ~ getAPIData ~ res", res)}
   };
 
+  const [ state, dispatch ] = useReducer(reducer, initialCount);
+
+  const increment = () => {
+    console.log('increment');
+    dispatch({
+      type: 'INCREMENT'
+    });
+  };
+
+  const decrement = () => {
+    console.log('decrement')
+    dispatch({
+      type: 'DECREMENT'
+    })
+  }
+
+  const setCount = () => {
+    console.log('reset')
+    dispatch({
+      type: 'RESET'
+    })
+  }
+
   return (
     <>
+    <div>
       <div>
         <div>ComponentC</div>
         <Link to="/">ComponentAへ移動</Link>
       </div>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={setCount}>Reset</button>
+      <h1>{state.count}</h1>
+    </div>
+
     <setData>
       <Button
         onClick={getAPIData}
