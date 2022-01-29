@@ -1,6 +1,6 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ADD_EVENT } from '../actions/index';
+import { ADD_EVENT, ALLDELETE_EVENT } from '../actions/index';
 import reducer from '../reducers';
 import axios from 'axios';
 import { Button, Form, FormLabel, Table } from 'react-bootstrap';
@@ -18,6 +18,17 @@ const ComponentB = () => {
     e.preventDefault();
     dispatch({
       type: ADD_EVENT,
+      title,
+      body
+    });
+    setTitle('');
+    setBody('');
+  };
+
+  let alldeleteClick = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: ALLDELETE_EVENT,
       title,
       body
     });
@@ -65,7 +76,7 @@ const ComponentB = () => {
         <Button variant="primary" onClick={handleClick}>
           イベント作成
         </Button>
-        <Button variant="danger" onClick={handleClick}>
+        <Button variant="danger" onClick={alldeleteClick}>
           イベント全削除
         </Button>
       </Form>
