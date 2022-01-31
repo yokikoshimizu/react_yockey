@@ -4,3 +4,4 @@ export const RESET = 'RESET';
 
 export const ADD_EVENT = 'ADD_EVENT';
 export const ALLDELETE_EVENT = 'ALLDELETE_EVENT';
+export const TEXTDELETE_EVENT = 'TEXTDELETE_EVENT';
