@@ -56,7 +56,7 @@ const ComponentB = () => {
       <div>
       <Form>
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Title</Form.Label>
+          <FormLabel>Title</FormLabel>
           <Form.Control
             type="text"
             placeholder="title"
@@ -65,7 +65,7 @@ const ComponentB = () => {
           />
         </Form.Group>
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Body</Form.Label>
+          <FormLabel>Body</FormLabel>
           <Form.Control
             type="text"
             placeholder="body"
