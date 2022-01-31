@@ -11,6 +11,7 @@ const ComponentB = () => {
   const [ state, dispatch ] = useReducer(reducer, []);
   const [ title, setTitle ] = useState('');
   const [ body, setBody ] = useState('');
+  const [ comment, setComment ] = useState('');
   const [ data,setData ] = useState([]);
     console.log('20220122');
 
@@ -19,10 +20,12 @@ const ComponentB = () => {
     dispatch({
       type: ADD_EVENT,
       title,
-      body
+      body,
+      comment
     });
     setTitle('');
     setBody('');
+    setComment('');
   };
 
   let alldeleteClick = (e) => {
@@ -30,10 +33,12 @@ const ComponentB = () => {
     dispatch({
       type: ALLDELETE_EVENT,
       title,
-      body
+      body,
+      comment
     });
     setTitle('');
     setBody('');
+    setComment('');
   };
 
   useEffect(() => {
@@ -73,6 +78,15 @@ const ComponentB = () => {
             onChange={(e) => setBody(e.target.value)}
           />
         </Form.Group>
+        <Form.Group controlId="formBasicPassword">
+          <FormLabel>comment</FormLabel>
+          <Form.Control
+            type="text"
+            placeholder="comment"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+        </Form.Group>
         <Button variant="primary" onClick={handleClick}>
           イベント作成
         </Button>
@@ -88,6 +102,7 @@ const ComponentB = () => {
                 <th>id</th>
                 <th>title</th>
                 <th>body</th>
+                <th>comment</th>
                 <th>#</th>
               </tr>
             </thread>
@@ -98,6 +113,7 @@ const ComponentB = () => {
                     <td>{data.id}</td>
                     <td>{data.title}</td>
                     <td>{data.body}</td>
+                    <td>{data.comment}</td>
                     <td>
                       <Button varient="danger">削除</Button>
                     </td>
@@ -124,6 +140,9 @@ const ComponentB = () => {
           <th>
             body
           </th>
+          <th>
+            comment
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -134,6 +153,7 @@ const ComponentB = () => {
                       <td>{d.id}</td>
                       <td>{d.title}</td>
                       <td>{d.body}</td>
+                      <td>{d.comment}</td>
                   </tr>
                   )
               })}

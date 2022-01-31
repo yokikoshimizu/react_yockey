@@ -3,12 +3,12 @@ import { INCREMENT, DECREMENT, RESET, ADD_EVENT, ALLDELETE_EVENT } from '../acti
 const reducer = (state, action) => {
     switch (action.type) {
         case ADD_EVENT:
-            const event = { title: action.title, body: action.body };
+            const event = { title: action.title, body: action.body, comment: action.comment, };
             const id = state.length + 1;
             return [ ...state, { id, ...event } ];
 
         case ALLDELETE_EVENT:
-            var noevent = { title: action.title, body: action.body };
+            var noevent = { title: action.title, body: action.body, comment: action.comment, };
             var idNo = state.length = 0;
             return [ ...state, { idNo, ...noevent } ];
 
