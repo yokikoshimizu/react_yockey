@@ -28,7 +28,6 @@ const ComponentB = () => {
     setComment('');
   };
 
-  // const result = dispatch.filter( state => state.length > 1 );
 
   let alldeleteClick = (e) => {
     e.preventDefault();

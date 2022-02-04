@@ -7,15 +7,18 @@ const reducer = (state, action) => {
             const id = state.length + 1;
             return [ ...state, { id, ...event } ];
 
-        case ALLDELETE_EVENT:
+        case ALLDELETE_EVENT: 
             var noevent = { title: action.title, body: action.body, comment: action.comment, };
             var idNo = state.length = 0;
-            return [ ...state, { idNo, ...noevent } ];
+            var result = state.filter( state => state.length > 1 );
+            return [ ...state, { idNo,result, ...noevent } ];
+
 
         case TEXTDELETE_EVENT:
             var noevent = { title: action.title, body: action.body, comment: action.comment, };
             var idNo = state.length = 0;
-            return [ ...state, { idNo, ...noevent } ];
+            var result = state.filter( state => state.length > 1 );
+            return [ ...state, { idNo,result, ...noevent } ];
 
         case INCREMENT:
             return { ...state, count: state.count + 1};
