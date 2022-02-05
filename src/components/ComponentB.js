@@ -121,6 +121,7 @@ const ComponentB = () => {
               </tr>
             </thread>
             <tbody>
+              {state.filter(data => data.length > 0)}
               {state.map((data,index) => {
                 return (
                   <tr key={index}>
@@ -139,7 +140,7 @@ const ComponentB = () => {
         </div>
 
 
-      <Table striped bordered hover>  
+      {/* <Table striped bordered hover>  
       <thead>
         <tr>
           <th>
@@ -172,7 +173,7 @@ const ComponentB = () => {
                   )
               })}
       </tbody>
-  </Table>
+  </Table> */}
   </>
   );
 };

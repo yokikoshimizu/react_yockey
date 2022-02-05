@@ -9,16 +9,13 @@ const reducer = (state, action) => {
 
         case ALLDELETE_EVENT: 
             var noevent = { title: action.title, body: action.body, comment: action.comment, };
-            var idNo = state.length = 0;
-            var result = state.filter( state => state.length > 1 );
-            return [ ...state, { idNo,result, ...noevent } ];
-
+            var idNo = state.length = null;
+            return [ ...state, { idNo, ...noevent } ];
 
         case TEXTDELETE_EVENT:
             var noevent = { title: action.title, body: action.body, comment: action.comment, };
-            var idNo = state.length = 0;
-            var result = state.filter( state => state.length > 1 );
-            return [ ...state, { idNo,result, ...noevent } ];
+            var idNo = state.length = null;
+            return [ ...state, { idNo, ...noevent } ];
 
         case INCREMENT:
             return { ...state, count: state.count + 1};
