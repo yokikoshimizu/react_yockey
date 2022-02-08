@@ -15,7 +15,9 @@ const reducer = (state, action) => {
             return [ ...result];
         
         case DONE_EVENT:
-            const done = state.filter(data => data.id !== action.id)
+            // const done = main.onclick = () => {
+            //     main.style.backgroundColor = "#3fb811";
+            //   };
             return [ ...done];
 
         case INCREMENT:
