@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT, RESET, ADD_EVENT, ALLDELETE_EVENT,TEXTDELETE_EVENT } from '../actions/';
+import { INCREMENT, DECREMENT, RESET, ADD_EVENT, ALLDELETE_EVENT,TEXTDELETE_EVENT,DONE_EVENT } from '../actions/';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -8,14 +8,15 @@ const reducer = (state, action) => {
             return [ ...state, { id, ...event } ];
 
         case ALLDELETE_EVENT: 
-            var noevent = { title: action.title, body: action.body, comment: action.comment, };
-            var idNo = state.length = null;
-            return [ ...state, { idNo, ...noevent } ];
+            return [];
 
         case TEXTDELETE_EVENT:
-            var noevent = { title: action.title, body: action.body, comment: action.comment, };
-            var idNo = state.length = null;
-            return [ ...state, { idNo, ...noevent } ];
+            const result = state.filter(data => data.id !== action.id)
+            return [ ...result];
+        
+        case DONE_EVENT:
+            const done = state.filter(data => data.id !== action.id)
+            return [ ...done];
 
         case INCREMENT:
             return { ...state, count: state.count + 1};

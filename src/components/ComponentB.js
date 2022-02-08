@@ -1,6 +1,6 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ADD_EVENT, ALLDELETE_EVENT, TEXTDELETE_EVENT } from '../actions/index';
+import { ADD_EVENT, ALLDELETE_EVENT, TEXTDELETE_EVENT,DONE_EVENT } from '../actions/index';
 import reducer from '../reducers';
 import axios from 'axios';
 import { Button, Form, FormLabel, Table } from 'react-bootstrap';
@@ -33,6 +33,16 @@ const ComponentB = () => {
     e.preventDefault();
     dispatch({
       type: ALLDELETE_EVENT,
+    });
+    setTitle('');
+    setBody('');
+    setComment('');
+  };
+
+  const textdeleteClick = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: TEXTDELETE_EVENT,
       title,
       body,
       comment
@@ -42,10 +52,10 @@ const ComponentB = () => {
     setComment('');
   };
 
-  var textdeleteClick = (e) => {
+  const doneClick = (e) => {
     e.preventDefault();
     dispatch({
-      type: TEXTDELETE_EVENT,
+      type: DONE_EVENT,
       title,
       body,
       comment
@@ -111,18 +121,40 @@ const ComponentB = () => {
 
       <h1>Table</h1>
           <Table striped bordered hover>
-            <thread>
+            <thead>
               <tr>
                 <th>id</th>
                 <th>title</th>
                 <th>body</th>
                 <th>comment</th>
                 <th>#</th>
+                <th>完了</th>
               </tr>
-            </thread>
+            </thead>
             <tbody>
-              {state.filter(data => data.length > 0)}
               {state.map((data,index) => {
+                console.log(data)
+                    const textdeleteClick = (e) => {
+                      e.preventDefault();
+                      dispatch({
+                        type: TEXTDELETE_EVENT,
+                        id:data.id
+                      });
+                      setTitle('');
+                      setBody('');
+                      setComment('');
+                    };
+                console.log(data)
+                    const doneClick = (e) => {
+                      e.preventDefault();
+                      dispatch({
+                        type: DONE_EVENT,
+                        id:data.id
+                      });
+                      setTitle('');
+                      setBody('');
+                      setComment('');
+                    };
                 return (
                   <tr key={index}>
                     <td>{data.id}</td>
@@ -130,7 +162,10 @@ const ComponentB = () => {
                     <td>{data.body}</td>
                     <td>{data.comment}</td>
                     <td>
-                      <Button varient="danger" onClick={textdeleteClick}>削除</Button>
+                      <Button variant="danger" onClick={textdeleteClick}>削除</Button>
+                    </td>
+                    <td>
+                      <Button variant="primary" onClick={doneClick}>完了</Button>
                     </td>
                   </tr>
                 );
