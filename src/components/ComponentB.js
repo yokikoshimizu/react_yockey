@@ -1,6 +1,6 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ADD_EVENT, ALLDELETE_EVENT, TEXTDELETE_EVENT,DONE_EVENT } from '../actions/index';
+import { ADD_EVENT, ALLDELETE_EVENT, TEXTDELETE_EVENT, DONE_EVENT } from '../actions/index';
 import reducer from '../reducers';
 import axios from 'axios';
 import { Button, Form, FormLabel, Table } from 'react-bootstrap';
@@ -12,7 +12,7 @@ const ComponentB = () => {
   const [ title, setTitle ] = useState('');
   const [ body, setBody ] = useState('');
   const [ comment, setComment ] = useState('');
-  const [ data,setData ] = useState([]);
+  const [ data, setData ] = useState([]);
     console.log('20220122');
 
   const handleClick = (e) => {
