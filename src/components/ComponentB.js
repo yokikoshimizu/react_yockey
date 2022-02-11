@@ -132,7 +132,7 @@ const ComponentB = () => {
               </tr>
             </thead>
             <tbody>
-              {state.map((data,index) => {
+              {state.map((data) => {
                 console.log(data)
                     const textdeleteClick = (e) => {
                       e.preventDefault();
@@ -156,7 +156,10 @@ const ComponentB = () => {
                       setComment('');
                     };
                 return (
-                  <tr key={index}>
+                  <tr 
+                    key={data.id}
+                    style={{backgroundColor: data.isDone === true ? "gray" : "white" }}
+                  >
                     <td>{data.id}</td>
                     <td>{data.title}</td>
                     <td>{data.body}</td>
@@ -165,7 +168,12 @@ const ComponentB = () => {
                       <Button variant="danger" onClick={textdeleteClick}>削除</Button>
                     </td>
                     <td>
-                      <Button variant="primary" onClick={doneClick}>完了</Button>
+                      <Button variant="primary" onClick={() => {
+                        const newTodos = state.map((v) => 
+                          v.id === data.id ? { ...v, isDone: true} : v
+                          );
+                          setData(newTodos);
+                      }}>完了</Button>
                     </td>
                   </tr>
                 );
