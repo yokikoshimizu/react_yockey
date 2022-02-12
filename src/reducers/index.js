@@ -3,7 +3,7 @@ import { INCREMENT, DECREMENT, RESET, ADD_EVENT, ALLDELETE_EVENT,TEXTDELETE_EVEN
 const reducer = (state, action) => {
     switch (action.type) {
         case ADD_EVENT:
-            const event = { title: action.title, body: action.body, comment: action.comment};
+            const event = { title: action.title, body: action.body, comment: action.comment };
             const id = state.length + 1;
             return [ ...state, { id, ...event } ];
 
@@ -15,8 +15,10 @@ const reducer = (state, action) => {
             return [ ...result];
         
         case DONE_EVENT:
-            const doneEvent = { title: action.title, body: action.body, comment: action.comment, isDone: false}
-            return [ ...doneEvent]
+            const newTodos = state.map((v) => 
+                v.id === action.id ? { ...v, isDone: true } : v
+            );
+            return newTodos;
 
         case INCREMENT:
             return { ...state, count: state.count + 1};

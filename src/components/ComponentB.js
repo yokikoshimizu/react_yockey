@@ -39,26 +39,20 @@ const ComponentB = () => {
     setComment('');
   };
 
-  const textdeleteClick = (e) => {
-    e.preventDefault();
+  const textdeleteClick = (id) => {
     dispatch({
       type: TEXTDELETE_EVENT,
-      title,
-      body,
-      comment
+      id: id, //←ここでreducerにイベントのidを渡している
     });
     setTitle('');
     setBody('');
     setComment('');
   };
 
-  const doneClick = (e) => {
-    e.preventDefault();
+  const doneClick = (id) => {
     dispatch({
       type: DONE_EVENT,
-      title,
-      body,
-      comment
+      id: id, //←ここでreducerにイベントのidを渡している
     });
     setTitle('');
     setBody('');
@@ -133,47 +127,20 @@ const ComponentB = () => {
             </thead>
             <tbody>
               {state.map((data) => {
-                console.log(data)
-                    const textdeleteClick = (e) => {
-                      e.preventDefault();
-                      dispatch({
-                        type: TEXTDELETE_EVENT,
-                        id:data.id
-                      });
-                      setTitle('');
-                      setBody('');
-                      setComment('');
-                    };
-                console.log(data)
-                    const doneClick = (e) => {
-                      e.preventDefault();
-                      dispatch({
-                        type: DONE_EVENT,
-                        id:data.id
-                      });
-                      setTitle('');
-                      setBody('');
-                      setComment('');
-                    };
                 return (
                   <tr 
                     key={data.id}
-                    style={{backgroundColor: data.isDone === true ? "gray" : "white" }}
+                    style={{ backgroundColor: data.isDone === true ? "gray" : "white" }}
                   >
                     <td>{data.id}</td>
                     <td>{data.title}</td>
                     <td>{data.body}</td>
                     <td>{data.comment}</td>
                     <td>
-                      <Button variant="danger" onClick={textdeleteClick}>削除</Button>
+                      <Button variant="danger" onClick={() => textdeleteClick(data.id)}>削除</Button>
                     </td>
                     <td>
-                      <Button variant="primary" onClick={() => {
-                        const newTodos = state.map((v) => 
-                          v.id === data.id ? { ...v, isDone: true} : v
-                          );
-                          setData(newTodos);
-                      }}>完了</Button>
+                      <Button variant="primary" onClick={() => doneClick(data.id)}>完了</Button>
                     </td>
                   </tr>
                 );
