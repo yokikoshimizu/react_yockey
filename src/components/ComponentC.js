@@ -57,13 +57,11 @@ const ComponentC = () => {
       <button onClick={setCount}>Reset</button>
       <h1>{state.count}</h1>
     </div>
-
     <setData>
       <Button
         onClick={getAPIData}
       >Button</Button>
     </setData>
-      
     <Table striped bordered hover>  
           <thead>
             <tr>
@@ -98,7 +96,6 @@ const ComponentC = () => {
                   })}
           </tbody>
         </Table>
-    
     </>
   );
 };
