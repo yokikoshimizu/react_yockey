@@ -1,6 +1,7 @@
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const RESET = 'RESET';
+export const NABEATSU = 'NABEATSU';
 
 export const ADD_EVENT = 'ADD_EVENT';
 export const ALLDELETE_EVENT = 'ALLDELETE_EVENT';
