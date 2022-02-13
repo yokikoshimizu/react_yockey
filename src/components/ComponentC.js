@@ -5,6 +5,7 @@ import reducer from '../reducers/index'
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import ComponentD from './ComponentD';
 
 const initialCount = {
   count: 0
@@ -47,6 +48,7 @@ const ComponentC = () => {
 
   return (
     <>
+    <ComponentD />
     <div>
       <div>
         <div>ComponentC</div>
@@ -58,11 +60,9 @@ const ComponentC = () => {
       <h1>{state.count}</h1>
     </div>
 
-    <setData>
       <Button
         onClick={getAPIData}
       >Button</Button>
-    </setData>
       
     <Table striped bordered hover>  
           <thead>
