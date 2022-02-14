@@ -27,7 +27,9 @@ const reducer = (state, action) => {
         case RESET:
             return { ...state, count: state.count = 0};
         case NABEATSU: 
-            let num = (action % 3 == 0 ) 
+            if (num % 3 == 0 ) {
+                console.log(num);
+            }
             return { ...num, count: state.count + 10}
         default:
             return state;
