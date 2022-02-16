@@ -6,7 +6,6 @@ const initialState = {
 
 export const Store = createContext({
   globalState: initialState,
-  setGlobalState: () => null
 });
 
 const StoreProvider = ({ children }) => {
