@@ -12,6 +12,7 @@ const initialCount = {
 }
 
 const ComponentC = () => {
+  const [ state, dispatch ] = useReducer(reducer, initialCount);
   const [data,setData] = useState([]);
     console.log('20220122');
   
@@ -22,8 +23,6 @@ const ComponentC = () => {
     } catch(res){
     console.log("🚀 ~ file: ComponentC.js ~ line 23 ~ getAPIData ~ res", res)}
   };
-
-  const [ state, dispatch ] = useReducer(reducer, initialCount);
 
   const increment = () => {
     console.log('increment');
@@ -48,56 +47,54 @@ const ComponentC = () => {
 
   return (
     <>
-    <ComponentD />
-    <div>
+      <ComponentD />
       <div>
-        <div>ComponentC</div>
-        <Link to="/">ComponentAへ移動</Link>
+        <div>
+          <div>ComponentC</div>
+          <Link to="/">ComponentAへ移動</Link>
+        </div>
+        <button onClick={increment}>+</button>
+        <button onClick={decrement}>-</button>
+        <button onClick={setCount}>Reset</button>
+        <h1>{state.count}</h1>
       </div>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
-      <button onClick={setCount}>Reset</button>
-      <h1>{state.count}</h1>
-    </div>
 
-      <Button
-        onClick={getAPIData}
-      >Button</Button>
+      <Button onClick={getAPIData}>Button</Button>
       
-    <Table striped bordered hover>  
-          <thead>
-            <tr>
-              <th>
-                postID
-              </th>
-              <th>
-                id
-              </th>
-              <th>
-                name
-              </th>
-              <th>
-                email
-              </th>
-              <th>
-                body
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-                { data.map((d,index) => {
-                    return (
-                      <tr key={index}>
-                          <td>{d.pstID}</td>
-                          <td>{d.id}</td>
-                          <td>{d.name}</td>
-                          <td>{d.email}</td>
-                          <td>{d.body}</td>
-                      </tr>
-                      )
-                  })}
-          </tbody>
-        </Table>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>
+              postID
+            </th>
+            <th>
+              id
+            </th>
+            <th>
+              name
+            </th>
+            <th>
+              email
+            </th>
+            <th>
+              body
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((d, index) => {
+            return (
+              <tr key={index}>
+                <td>{d.pstID}</td>
+                <td>{d.id}</td>
+                <td>{d.name}</td>
+                <td>{d.email}</td>
+                <td>{d.body}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </Table>
     
     </>
   );

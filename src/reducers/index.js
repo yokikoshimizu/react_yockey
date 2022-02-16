@@ -6,20 +6,16 @@ const reducer = (state, action) => {
             const event = { title: action.title, body: action.body, comment: action.comment };
             const id = state.length + 1;
             return [ ...state, { id, ...event } ];
-
         case ALLDELETE_EVENT: 
             return [];
-
         case TEXTDELETE_EVENT:
             const result = state.filter(data => data.id !== action.id)
             return [ ...result];
-        
         case DONE_EVENT:
             const newTodos = state.map((v) => 
                 v.id === action.id ? { ...v, isDone: true } : v
             );
             return newTodos;
-
         case INCREMENT:
             return { ...state, count: state.count + 1};
         case DECREMENT:

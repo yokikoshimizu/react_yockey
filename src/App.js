@@ -8,10 +8,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ComponentA></ComponentA>}></Route>
-        <Route path="/componenta" element={<ComponentA></ComponentA>}></Route>
-        <Route path="/componentb" element={<ComponentB></ComponentB>}></Route>
-        <Route path="/componentb/componentc" element={<ComponentC></ComponentC>}></Route>
+        <Route path="/" element={<ComponentA />}></Route>
+        <Route path="/componenta" element={<ComponentA />}></Route>
+        <Route path="/componentb" element={<ComponentB />}></Route>
+        <Route path="/componentb/componentc" element={<ComponentC />}></Route>
       </Routes>
     </Router>
   )
