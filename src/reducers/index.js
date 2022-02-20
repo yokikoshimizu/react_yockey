@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT, RESET, NABEATSU, ADD_EVENT, ALLDELETE_EVENT,TEXTDELETE_EVENT,DONE_EVENT } from '../actions/';
+import { INCREMENT, DECREMENT, RESET, NABEATSU, ADD_EVENT, ALLDELETE_EVENT,TEXTDELETE_EVENT,DONE_EVENT, TODOS } from '../actions/';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -27,6 +27,9 @@ const reducer = (state, action) => {
                 return { count: state.count + 10};
             }
             return state;
+        case TODOS:
+            console.log(action.data, 'test action data check')
+            return {...state, data: action.data}
         default:
             return state;
     }
