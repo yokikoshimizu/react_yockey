@@ -11,8 +11,16 @@ const ComponentB = () => {
   const [ title, setTitle ] = useState('');
   const [ body, setBody ] = useState('');
   const [ comment, setComment ] = useState('');
-  const [ data, setData ] = useState([]);
-    console.log('20220122');
+  const [ setData ] = useState([]);
+  console.log('20220122');
+  
+  useEffect(() => {
+    console.log('useEffect が呼び出されました。');
+    axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
+      setData(res.data)
+    })
+  }, [setData]);
+
   const handleClick = (e) => {
     e.preventDefault();
     dispatch({
@@ -39,7 +47,7 @@ const ComponentB = () => {
   const textdeleteClick = (id) => {
     dispatch({
       type: TEXTDELETE_EVENT,
-      id: id, //←ここでreducerにイベントのidを渡している
+      id//←ここでreducerにイベントのidを渡している id: idは、idだけに省略できる
     });
     setTitle('');
     setBody('');
@@ -49,20 +57,12 @@ const ComponentB = () => {
   const doneClick = (id) => {
     dispatch({
       type: DONE_EVENT,
-      id: id, //←ここでreducerにイベントのidを渡している
+      id//←ここでreducerにイベントのidを渡している id: idは、idだけに省略できる
     });
     setTitle('');
     setBody('');
     setComment('');
   };
-
-  useEffect(() => {
-    console.log('useEffect が呼び出されました。');
-    axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
-      console.log(res.data, 'res check');
-      setData(res.data)
-    })
-  }, []);
 
   return (
     <>
@@ -70,7 +70,6 @@ const ComponentB = () => {
         <div>ComponentB</div>
         <Link to="componentc">ComponentCへ移動</Link>
       </div>
-
       <div>
         <Form>
           <Form.Group controlId="formBasicPassword">
@@ -107,7 +106,6 @@ const ComponentB = () => {
             イベント全削除
           </Button>
         </Form>
-
         <h1>Table</h1>
         <Table striped bordered hover>
           <thead>
