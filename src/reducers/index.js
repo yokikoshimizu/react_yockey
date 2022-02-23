@@ -1,5 +1,4 @@
-import { INCREMENT, DECREMENT, RESET, NABEATSU, SETDATA,
-     ADD_EVENT, ALLDELETE_EVENT,TEXTDELETE_EVENT,DONE_EVENT } from '../actions/';
+import { INCREMENT, DECREMENT, RESET, NABEATSU, SETDATA,ADD_EVENT, ALLDELETE_EVENT,TEXTDELETE_EVENT,DONE_EVENT } from '../actions/';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -28,9 +27,11 @@ const reducer = (state, action) => {
         case NABEATSU: 
             if (state.count % 3 === 0 && state.count !== 0) {
                 return { count: state.count + 10};
-            } 
+            } else {
+                return state
+            }
         default:
-            return state;
+            return state
     }
 };
 

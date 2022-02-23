@@ -7,26 +7,22 @@ import {Store} from '../store'
 import { SETDATA } from '../actions'
 
 const ComponentA = () => {
-  const { globalState, setGlobalState } = useContext(Store);
+  const { setGlobalState } = useContext(Store);
   const [data,setData] = useState([]);
-  console.log('20220122');
+  console.log('20220223');
   useEffect(() => {
     console.log('useEffect が呼び出されました。');
     axios.get('https://jsonplaceholder.typicode.com/todos').then(res => {
-      console.log(res.data, 'res check');
       setData(res.data)
       setGlobalState({type: SETDATA, payload:{data: res.data}})
     })
-  }, []);
-
-  console.log(globalState);
+  }, [setGlobalState]);
 
   return (
     <>
       <div>ComponentA</div>
       <Link to="componentb">ComponentBへ移動</Link>
       <Table striped bordered hover>
-        
         <thead>
           <tr>
             <th>
@@ -51,7 +47,6 @@ const ComponentA = () => {
             )
           })}
         </tbody>
-        
       </Table>
     </>
   );

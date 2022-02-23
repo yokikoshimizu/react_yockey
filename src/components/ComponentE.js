@@ -30,7 +30,6 @@ const ComponentE = () => {
         });
     };
 
-    console.log(globalState);
     return (
         <div>
             <div>
@@ -41,35 +40,35 @@ const ComponentE = () => {
                 <button onClick={handleClick4}>ナベアツ</button>
             </div>
             <Table striped bordered hover>
-            <thead>
-            <tr>
-                <th>
-                id
-                </th>
-                <th>
-                userId
-                </th>
-                <th>
-                title
-                </th>
-                <th>
-                completed
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            {globalState.data.map((d, index) => {
-                return (
-                <tr key={index}>
-                    <td>{d.id}</td>
-                    <td>{d.userId}</td>
-                    <td>{d.title}</td>
-                    <td>{d.completed}</td>
-                </tr>
-                )
-            })}
-            </tbody>
-         </Table>
+                <thead>
+                    <tr>
+                        <th>
+                            id
+                        </th>
+                        <th>
+                            userId
+                        </th>
+                        <th>
+                            title
+                        </th>
+                        <th>
+                            completed
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {globalState.data.map((d, index) => {
+                        return (
+                            <tr key={index}>
+                                <td>{d.id}</td>
+                                <td>{d.userId}</td>
+                                <td>{d.title}</td>
+                                <td>{d.completed}</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </Table>
         </div>
     );
 };

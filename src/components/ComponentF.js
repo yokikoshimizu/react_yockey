@@ -4,10 +4,11 @@ import { Store } from '../store/index';
 const ComponentF = () => {
     const value = useContext(Store);
     return (
-        <div>
+        <section>
+            {/* htmlのタグですが、sectionとかmainとかもあるので、色々勉強してみてくださいね！ */}
             <h1>ComponentF.js</h1>
             <h2>{value}</h2>
-        </div>
+        </section>
     );
 };
 
